@@ -29,5 +29,22 @@ public class ServicioUserDto {
 				
 		return usuarios;
 	}
-    
+
+	/**
+	 * Permite agregar un usuario
+	 *  
+	 * @param usuarioDto
+	 * @return dto con el id del usuario
+	 */
+	public UserDto agregaUsuario(UserDto usuarioDto) {
+		String nombre = usuarioDto.getName();
+		String email = usuarioDto.getEmail();
+		
+		usuario = new Usuario();
+		usuario.setName(nombre);
+		usuario.setEmail(email);
+		usuario = userRepository.save(usuario);
+		
+		return UserDto.creaDto(usuario);
+	}    
 }

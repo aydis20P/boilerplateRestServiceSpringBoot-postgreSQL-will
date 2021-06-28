@@ -1,4 +1,4 @@
-package com.example.restservice.presentacion.greeting;
+package com.example.restservice.controladores.user;
 
 import java.util.List;
 
@@ -28,5 +28,14 @@ public class UserController {
 		return ResponseEntity.status(HttpStatus.OK).body(usuarios);
 		
 	}
-    
+
+
+    @PostMapping(path = "/usuarios", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<UserDto> create(@RequestBody UserDto nuevoUsuario) {
+				
+		UserDto usuarioDto = servicioUsuarios.agregaUsuario(nuevoUsuario);
+
+		return ResponseEntity.status(HttpStatus.CREATED).body(usuarioDto);
+		
+	}
 }
