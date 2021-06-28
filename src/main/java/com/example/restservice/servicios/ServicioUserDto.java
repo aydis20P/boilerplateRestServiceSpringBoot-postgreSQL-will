@@ -40,7 +40,7 @@ public class ServicioUserDto {
 		String nombre = usuarioDto.getName();
 		String email = usuarioDto.getEmail();
 		
-		usuario = new Usuario();
+		usuario = new User();
 		usuario.setName(nombre);
 		usuario.setEmail(email);
 		usuario = userRepository.save(usuario);
